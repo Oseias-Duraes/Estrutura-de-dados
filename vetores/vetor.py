@@ -4,6 +4,13 @@ class Vetor():
         self.__elementos = [None] * tamanho
         self.__posicao = 0
 
+    def tamanho_vetor (self):
+        return len(self.__elementos)
+
+    def __str__(self):
+        #1 2 3 4
+        return ' '.join([ str(i) for i in self.__elementos])
+
     def inserir_elemento_posicao (self, elemento, posicao):
         vetor_inicio = self.__elementos[:posicao] + [None] #1, 2, [None]
         vetor_final = self.__elementos[posicao:] #3
@@ -13,7 +20,7 @@ class Vetor():
 
 
     def inserir_elemento_final(self, elemento):
-        if self.__posicao >= len(self.__elementos):
+        if self.__posicao >= self.tamanho_vetor():
             #[None], [None], [None]
             self.__elementos= self.__elementos + [None]
             # [None], [None], [None], [None]
